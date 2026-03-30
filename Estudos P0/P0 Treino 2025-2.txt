@@ -1,0 +1,117 @@
+P0 Treino 2025-2
+
+1)
+cont4 = 0
+cont2 = 0
+num = str(42**42)
+for i in num:
+   if i == '4':
+      cont4 += 1
+   if i == '2':
+      cont2 += 1
+if cont4 > cont2:
+   print("O número '42**42' é especial")
+else:
+   print("O número '42**42' não é especial")
+
+print(len(num))
+
+
+2)
+a	b	c
+5	1	0
+3	1	5
+1	1	8
+		9
+		
+
+
+3)
+n	soma
+7	0
+4	1
+2	5
+	7
+	
+
+4)
+linha 2: palavra deveria ser p
+
+correção:
+def pythonica(p):
+   for letra in p:
+      if letra in 'python':
+         return True
+      return False
+s = 'abacate'
+print(pythonica(s))
+
+
+5)
+linha 3: mensagem não pode concatenar int e string
+linha 6: menssagem é uma variável que não existe
+
+correção:
+nome = "Maria"
+idade = 20
+mensagem = f'{nome} tem {idade} anos'
+print = ("Mensagem:", mensagem)
+print(mensagem)
+
+
+6)
+frase = input('Digite uma frase: ').split()
+acrônimo = ''.join([p[0].upper() for p in frase])
+
+
+7)
+lista = []
+for i in range(10):
+   num = random.randint(1, 100)
+   lista.append(num)
+maior = 0
+for i in lista:
+   if i > maior:
+      maior = i
+print(maior)
+
+
+8) 
+res = ''
+cont = 0
+palavra = input('Digite uma palavra: ')
+for l1 in palavra:
+   for l2 in palavra:
+      if l1 == l2:
+         cont += 1
+      else:
+         res += l1 + str(cont)
+         cont = 0
+         break
+print(res)
+
+
+9)
+lista = []
+for i in range(1, 11):
+   num = random.randint(1, 100)
+   if num not in lista:
+      lista.append(num)
+print(lista)
+
+
+10)
+tentativas = 0
+num = random.randint(1, 100)
+while True:
+   chute = int(input('Digite um número: '))
+   if chute > num:
+      print('menor')
+      tentativas += 1
+   else if chute < num:
+      print('maior')
+      tentativas += 1
+   else:
+      tentativas += 1
+      print(f'Você acertou o número {num} em {tentativas} tentativas!')
+      break

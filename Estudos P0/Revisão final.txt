@@ -1,0 +1,404 @@
+Revisão final
+
+LIST E DICT COMPREHENSION
+
+Seja uma lista de inteiros, mostre apenas os números pares usando list comprehension.
+res1 = [x for x in lista if x % 2 == 0]
+
+
+Crie uma lista com os quadrados de todos os números pares de 1 a 20 usando list comprehension.
+res2 = [x**2 for x in range(1,21) if x % 2 == 0]
+
+
+Dada uma lista de palavras, ordene-a pelo tamanho das palavras em ordem crescente, utilizando sorted() com a cláusula key=.
+res3 = sorted(palavras, key=len)
+
+
+Dada uma lista de palavras, ordene-a pelo número de vogais presentes em cada palavra.
+def vogais(p):
+   cont = 0
+   for l in p:
+      if l in 'aeiou':
+         cont += 1
+   return cont
+res4 = sorted(palavras, key=vogais)
+
+
+Dada uma lista de palavras, ordene-a pelo último caractere de cada palavra.
+res5 = [p for p in sorted(palavras, key=lambda p: p[-1])]
+
+
+Dada uma string, utilize list comprehension para criar uma nova string onde os caracteres aparecem alternando entre maiúsculas e  minúsculas.
+res6 = ''.join([l.upper() if i % 2 == 0 else l.lower() for i, l in enumerate(palavra)])
+
+
+Dada uma lista de strings contendo números misturados com letras (por exemplo, "a3b", "z12y", "c1x"), ordene a lista com base no número contido na string.
+def numeros(s):
+   lista = []
+   for i in s:
+      if i in '0123456789':
+         lista.append(i)
+   return int(''.join(lista))
+res7 = sorted(strings, key=numeros)
+
+
+Crie um dicionário que mapeia os números de 1 a 10 para seus respectivos quadrados, usando dict comprehension.
+res8 = {num: num**2 for num in range(1, 11)}
+
+
+Dada uma string, crie um dicionário onde as chaves são os caracteres e os valores são a contagem de vezes que cada caractere aparece.
+res9 = {l:string.count(l) for l in string}
+
+
+Dado um dicionário qualquer, crie um novo dicionário onde as chaves e os valores estejam invertidos.
+res10 = {valor: chave for chave, valor in dic.items()}
+
+
+Dado um dicionário de números, crie um novo dicionário contendo apenas os pares chave-valor onde o valor seja maior que um determinado número.
+def res11(dicionario, num):
+   return {chave:valor for chave, valor in dicionário.items() if valor > num} 
+
+
+Dado um dicionário, ordene-o pelos valores.
+res12 = sorted(dicionario, key=dicionario.get())
+
+
+Dado um dicionário onde as chaves são palavras, ordene-o com base no comprimento das chaves.
+res13 = sorted(dicionario, key=len)
+
+
+Dada uma frase, crie um dicionário onde as chaves são palavras e os valores são a contagem de vezes que cada palavra aparece.
+res14 = {p: frase.count(p) for p in frase.split()}
+
+
+Dado um dicionário onde os valores são números, crie um novo dicionário onde cada valor seja a raiz quadrada do original.
+res15 = {chave: sqrt(valor) for chave, valor in dicionario.items()}
+
+
+Dada uma lista de palavras, crie um dicionário onde as chaves sejam as primeiras letras e os valores sejam listas das palavras correspondentes.
+lista = 'cax abe b13 c23 arr d12'.split()
+saída: {'a': ['abe', 'arr'], 'b':['b13'], 'c':['cax', 'c23'], 'd': ['d12']}
+
+def teste(lista):
+   dic = {}
+   for p in lista:
+      if p[0] not in dic.keys(): 
+         dic[p[0]] = [p]
+      else:
+         dic[p[0]].append(p)
+   return dic
+
+
+
+
+
+
+PO REVISÃO
+
+
+1)
+cont4 = 0
+cont2 = 0
+num = str(42**42)
+for i in num:
+   if i == '4':
+      cont4 += 1
+   if i == '2':
+      cont2 += 1
+if cont4 > cont2:
+   print('Especial')
+print(len(num))
+
+
+2)
+a	b	c
+5	1	0
+3	1	5
+1	1	8   
+		9
+
+
+3)
+n	soma
+7	0
+4	1
+2	5
+	7
+
+
+4)
+-palavra não existe, deveria ser p
+-return False dentro do for
+def 
+def pythonica(palavra):
+   for letra in palavra:
+      if letra in 'python':
+         return True
+   return False
+s = 'abacate'
+print(pythonica(s))
+
+
+
+5)
+-concatenação de string e inteiro
+-atribuição em print =
+nome = "Maria"
+idade = 20
+mensagem = nome + " tem " + str(idade) + " anos"
+print("Mensagem:", mensagem)
+print(mensagem)
+
+
+6)
+frase = input('Digite uma frase: ')
+print(''.join([p[0].upper() for p in frase.split()))
+
+
+
+7)
+import random
+lista = []
+for i in range(10):
+   lista.append(random.randint(1, 100))
+maior = 0
+for num in lista:
+   if num > maior:
+      maior = num
+print(maior)
+
+
+8)
+palavra = input('Digite uma palavra: ')
+cont = 1
+res = ''
+for i in range(len(palavra)-1):
+   if palavra[i] == palavra[i+1]:
+      cont += 1
+   else:
+      res += palavra[i] + str(cont)
+      cont = 1
+   
+
+9)
+lista = []
+while len(lista) < 10:
+   num = random.randint(1, 100)
+   if num not in lista:
+      lista.append(num)
+print(lista)
+
+
+10)
+numero = random.randint(1, 100)
+tentativas = 0
+while True:
+   chute = int(input('Chute; '))
+   tentativas += 1
+   if chute > numero:
+      print('menor')
+   elif chute < numero:
+      print('maior')
+   else:
+      break
+print(tentativas)
+
+
+
+
+
+P1 REVISÃO
+
+
+1)
+x	y	z
+6	1	0
+5	3	1
+3	3	6
+1	3	9
+		10
+
+
+2)
+def max_repeticoes(palavra, letra):
+   cont = 0
+   lista = []
+   for l in palavra
+      if l == letra:
+         cont += 1
+      else:
+         lista.append(cont)
+         cont = 0
+   return max(lista)
+
+
+3)
+a) Verifica se a string de números possui um par de números iguais consecutivos.
+chato('123456') = False e chato('123455') = True
+b)
+def chato(f):
+   lista = []
+   for d in range(10):
+      if str(d) + str(d) in f:
+         lista.append(str(d) + str(d))
+   return lista
+print(chato("123456"))
+print(chato("123455"))
+
+
+4)
+a) pela falta de parênteses depois do 'and' se hora < 7 for False ele não verifica hora > 20.
+def papagaio(falando, hora):
+   return falando and (hora < 7 or hora > 20)
+b)
+def papagaio(falando, hora):
+   if hora < 7 and falando:
+      return 'Problema: cedo'
+   elif hora > 20 and falando:
+      return 'Problema: tarde'
+   else:
+      return 'Sem problemas'
+
+
+5)
+a) Uso de fatiamento de string para unir uma string que vai até o índice antes de n e une com outra que vai do índice após o n até o final da palavra.
+b)
+def apaga(s, n):
+   if n >= 0 and n <= len(s) - 1:
+      return s[:n] + s[n+1:]
+   else:
+      return s
+
+
+6)
+a) s[:k] é o fatiamento da string que vai da primeira letra até a letra anterior ao índice correspondente ao valor atual de k. string_splosion('1234') = '1121231234'.
+b)
+def string_implosion(s):
+   k = len(s)
+   resp = ""
+   while k >= 0:
+      resp = resp + s[:k]
+      k = k - 1
+   return resp
+
+
+7)
+a) a função não trata listas vazias ou com 1 elemento.
+def sum2(nums):
+   if len(nums) >= 2:
+      return nums[0] + nums[1]
+   return nums
+b)
+def sum2(nums):
+   if len(nums) >= 2:
+      return nums[-1] + nums[-2]
+
+
+8)
+def peguei_no_alcool(taxa,carnaval):
+   if carnaval:
+      taxa -= 0.1
+   if taxa <= 0.2:
+      return 0
+   elif 0.2 < taxa <= 5:
+      return 1
+   return 2
+
+
+9)
+def ifood_discount(valor, estudante):
+   if valor < 20:
+      return 0
+   elif valor >= 20 and estudante:
+      return 2
+   return 1
+
+
+10)
+def netflix_party(hora, is_weekend):
+   if hora < 18:
+      return 'Sem sessão'
+   elif 18 <= hora <= 24 and is_weekend:
+      return 'Sessão cheia'
+   elif 18 <= hora <= 22:
+      return 'Sessão cheia'
+   return 'Sessão reduzida'
+
+
+
+
+
+
+P2 REVISÃO
+
+
+1)
+A função transforma o resto da divisão de n em string e compara com uma string de números que retornam true se n for um número próximo de 10, com margem de erro de 2.
+def near_five(n):
+   return str(n % 5) in '014'
+
+2)
+def sanduiche_de_consoantes(s):
+    vogais = 'aeiou'
+    cont = 0
+    for i in range(len(s) - 2):
+        if s[i].lower() not in vogais and s[i+2].lower() not in vogais:
+            cont += 1
+    return cont
+
+
+3)
+A função original verifica se n é a soma de dois números distintos da lista.
+def diferenca_na_lista(n, lista):
+    return n in [x - y for x in lista for y in lista if x != y]
+
+
+4)
+A função original troca todas as ocorrências do primeiro caractere por *, exceto a primeira.
+def fixa_ultimo(s):
+   return s[:-1].replace(s[-1], '*') + s[-1]
+
+
+5)
+
+def soma_impares_finais(n):
+   n = str(n)[::-1]
+   soma = 0
+   for c in n:
+      if int(c) % 2 != 0:
+         soma += int(c)
+      else:
+         break
+   return soma
+
+
+6)
+A função original usa sorted com uma função key que pega a última letra de cada nome.
+def ordena_por_tamanho(nomes):
+   return sorted(nomes, key=len)
+
+
+7)
+def remove(p):
+   return ''.join(set(p))
+
+
+8)
+def inverte(frase):
+   return ' '.join([p[::1] for p in frase.split()])
+
+
+9)
+'A B': Não é possível, se entra na prieira condição, não pode entrar no elif ou else.
+'A': 15
+'B': 11
+'C': 1
+
+
+10)
+a) A função comum retorna uma lista com elementos de seq1 que também estão em seq2.
+b) ['a', 'l'], [1, 3] e ['a'] 
+def nao_comum(seq1, seq2):
+    return [x for x in seq1 if x not in seq2]
+
+
