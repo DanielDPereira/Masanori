@@ -1,0 +1,65 @@
+*na prova, vou ter que escrever um código que faça isso
+INSERÇÃO:
+6 3 2 5 4 7 1 0
+---------------
+6                   6 fica na posição
+3 6                 3 empurra 6
+2 3 6               2 empurra 36
+2 3 5 6             5 empurra 6
+2 3 4 5 6           4 empurra 56
+2 3 4 5 6 7         7 fica na posição
+1 2 3 4 5 6 7       1 empurra 234567
+0 1 2 3 4 5 6 7     0 empurra 1234567
+
+*outro exemplo
+7 5 0 1 2 3 6 4
+---------------
+7                   7 fica na posição
+5 7                 5 empurra 7
+0 5 7               0 empurra 57
+0 1 5 7             1 empurra 57
+0 1 2 5 7           2 empurra 57
+0 1 2 3 5 7         3 empurra 57
+0 1 2 3 5 6 7       6 empurra 7
+0 1 2 3 4 5 6 7     4 empurra 567
+
+-eu gasto n (tamanho do vetor) passos para percorrer todos
+-para cada n posso gastar também n se o número é pequeno
+-total: n*n passos (n**2), isso é muito ruim
+
+
+*pior caso
+SELEÇÃO:
+-percorro todos da esq para a dir
+-a cada um, vejo o menor do lado direito
+-troco atual com o menor
+2 0 5 7 3 1 6 4
+---------------
+0 2 5 7 3 1 6 4     troquei 0 com 2
+0 1 5 7 3 2 6 4     troquei 1 com 2
+0 1 2 7 3 5 6 4     troquei 2 com 5
+0 1 2 3 7 5 6 4     troquei 3 com 7
+0 1 2 3 4 5 6 7     troquei 4 com 7
+0 1 2 3 4 5 6 7     troquei 5 com 5 (ele mesmo)
+0 1 2 3 4 5 6 7     troquei 6 com 6 (ele mesmo)
+0 1 2 3 4 5 6 7     não preciso fazer nada, é o último
+
+
+*outro exemplo
+7 5 0 1 2 3 6 4
+---------------
+0 5 7 1 2 3 6 4     troquei 0 com 7
+0 1 7 5 2 3 6 4     troquei 1 com 5
+0 1 2 5 7 3 6 4     troquei 2 com 7
+0 1 2 3 7 5 6 4     troquei 3 com 5
+0 1 2 3 4 5 6 7     troquei 4 com 7
+0 1 2 3 4 5 6 7     troquei 5 com 5
+0 1 2 3 4 5 6 7     troquei 6 com 6
+0 1 2 3 4 5 6 7     cabô
+
+-preciso de n passos para percorrer todos
+-a cada um, preciso ver todos da direita (n passos)
+-total: n*n (n**2) passos
+
+seleção sempre é ruim, não tem caso bom, assim como inserção
+*SOLUÇÃO: usando a função pronta min(), que é otimizada para ver os menores, sem percorrer todos os elementos
