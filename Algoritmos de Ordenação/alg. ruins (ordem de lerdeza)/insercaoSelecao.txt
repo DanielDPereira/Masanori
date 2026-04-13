@@ -42,7 +42,7 @@ SELEÇÃO:
 0 1 2 3 4 5 6 7     troquei 4 com 7
 0 1 2 3 4 5 6 7     troquei 5 com 5 (ele mesmo)
 0 1 2 3 4 5 6 7     troquei 6 com 6 (ele mesmo)
-0 1 2 3 4 5 6 7     não preciso fazer nada, é o último
+0 1 2 3 4 5 6 7     não preciso verificar, é o último
 
 
 *outro exemplo
@@ -57,9 +57,41 @@ SELEÇÃO:
 0 1 2 3 4 5 6 7     troquei 6 com 6
 0 1 2 3 4 5 6 7     cabô
 
+*outro exemplo
+5 3 0 1 2 4 6 7
+---------------
+0 3 5 1 2 4 6 7     troquei 0 com 5
+0 1 5 3 2 4 6 7     troquei 1 com 3
+0 1 2 3 5 4 6 7     troquei 2 com 5
+0 1 2 3 5 4 6 7     troquei 3 com 3 (ele mesmo)
+0 1 2 3 4 5 6 7     troquei 4 com 5
+0 1 2 3 4 5 6 7     troquei 5 com 5 (ele mesmo)
+0 1 2 3 4 5 6 7     troquei 6 com 6 (ele mesmo)
+0 1 2 3 4 5 6 7     7 é o último, não faz nada
+
 -preciso de n passos para percorrer todos
 -a cada um, preciso ver todos da direita (n passos)
 -total: n*n (n**2) passos
 
 seleção sempre é ruim, não tem caso bom, assim como inserção
 *SOLUÇÃO: usando a função pronta min(), que é otimizada para ver os menores, sem percorrer todos os elementos
+
+forma muito melhor (não lembro o nome):
+20573164            1 vetor de 8
+---------------
+2057 3164           2 vetores de 4
+20 57 31 64         4 vetores de 2
+2 0 5 7 3 1 6 4     8 vetores de 1
+02 57 13 46         4 vetores de 2
+0257 1346           2 vetores de 4
+01234567            vetor final ordenado
+
+*outro exemplo
+53012467            1 vetor de 8
+---------------
+5301 2467           2 vetores de 4
+53 01 24 67         4 vetores de 2
+5 3 0 1 2 4 6 7     8 vetores de 1
+35 01 24 67         4 vetores de 2
+0135 2467           2 vetores de 4
+01234567            vetor final ordenado
