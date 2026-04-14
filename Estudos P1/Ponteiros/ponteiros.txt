@@ -1,0 +1,23 @@
+-ponteiro é um tipo especial que armazena endereços
+-cada variável tem um endereço, inclusive o ponteiro
+
+int x = 5;
+    endereço        valor
+    0xcccc          0x0005
+
+int y = x;
+    endereço        valor
+x   0xCCCC          0x0005
+y   0xCCD0          0x0005
+(passar por valor)
+
+
+int *y = &x;
+    endereço        valor
+x   0xCCCC          0x0005
+y   0xCCD0          0xCCCC
+(passar por referência)
+-agora, y sempre reflete o valor de x
+-dessa forma:  *y aponta o valor de x
+                y recebe o endereço de x
+               &y é o endereço de y
