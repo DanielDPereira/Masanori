@@ -1,0 +1,74 @@
+Structs:
+    -Tipo de dado personalizado que permite agrupar variáveis de diferentes tipos sob um único nome.
+    -Se você quer guardar os dados de um carro, em vez de criar variáveis soltas como char marca[20], int ano e float preco, você agrupa tudo:
+        --struct Carro {
+            char marca[20];
+            int ano;
+            float preco;
+          };
+
+Typedef (type definition):
+    -Cria um apelido (alias) para um tipo que já existe. Ele não cria um tipo novo, apenas facilita a escrita.
+    -Sem/Com Typedef:
+        --unsigned long int populacao; // Nome longo e chato
+        --typedef unsigned long int ulong;
+          ulong populacao; // Muito mais limpo!
+
+Obs:
+-Em C, sempre que você quer declarar uma variável de uma struct, você é obrigado a escrever a palavra struct antes. Isso cansa. O typedef resolve isso.
+Sem:
+struct Ponto {
+    int x, y;
+};
+
+struct Ponto p1; // Tem que escrever "struct" toda vez.
+
+Com:
+typedef struct {
+    int x, y;
+} Ponto;
+
+Ponto p1; // Agora "Ponto" funciona como se fosse um int ou float
+
+
+
+Operador ->:
+    -O operador de seta (->) em C é usado para acessar membros de uma struct através de um ponteiro.
+    -Se você tem a variável da struct diretamente, usa o ponto (.). Se tem o endereço dela (um ponteiro), usa a seta (->).
+        --Variável direta: objeto.membro
+        --Ponteiro para objeto: ponteiro->membro
+    -Posso usá-lo para:
+        --Atribuir: p_usuario->idade = 25;   // O valor 25 "viaja" até o endereço e entra no campo idade.
+        --Ler: int x = p_usuario->idade;   // O valor que estava na memória é copiado para a variável x.
+
+    -Ex:
+        #include <stdio.h>
+        #include <string.h>
+
+        struct Player {
+            char nome[20];
+            int nivel;
+        };
+
+        int main()
+        {
+            struct Player p1;           // Variável comum
+            struct Player *ptr = &p1;   // Ponteiro apontando para p1
+
+            // 1. Usando o ponto (variável direta)
+            p1.nivel = 10;
+
+            // 2. Usando a seta (através do ponteiro)
+            ptr->nivel = 25;
+        }
+
+Ponteiro para ponteiro (**):
+    -Se um ponteiro armazena o endereço de uma variável, um ponteiro duplo armazena o endereço do ponteiro.
+        int x = 10;      // Uma variável inteira
+        int *p = &x;     // Um ponteiro simples apontando para x
+        int **pp = &p;   // Um ponteiro duplo apontando para o ponteiro p
+
+    -Para chegar ao valor final (10), você precisa "abrir" as caixas em camadas:
+        pp: Contém o endereço de memória de p.
+        *pp: Contém o valor de p (que é o endereço de x).
+        **pp: Contém o valor de x (o número 10).

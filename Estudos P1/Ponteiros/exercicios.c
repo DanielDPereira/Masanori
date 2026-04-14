@@ -73,4 +73,6 @@ int main(void)
     encontra_min_max(palavra, &menor, &maior);
 
     printf("%c %c", menor, maior);
+
+    return 0;
 }

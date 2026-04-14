@@ -11,4 +11,6 @@ int main(void)
     printf("%p\n", &x); // endereço de x
     printf("%p\n", y); // valor de y (endereço de x)
     printf("%p\n", &y); // endereço de y
+
+    return 0;
 }
