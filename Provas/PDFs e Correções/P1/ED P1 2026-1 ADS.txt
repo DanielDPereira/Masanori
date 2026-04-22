@@ -1,0 +1,104 @@
+1.
+{p['nome']: p['preco'] * 1.1 for p in lista if p['ativo']}
+
+2. 
+salario = 2000
+meta = 6000
+poupanca_mensal = salario * 0.15  # 15% de 2000 = 300
+acumulado = 0
+mes = 0
+
+while acumulado < meta:
+    mes += 1
+    
+    # 1. Guarda o valor mensal 
+    acumulado += poupanca_mensal
+    
+    # 2. Despesa fixa a cada 5 meses
+    if mes % 5 == 0:
+        acumulado -= 300
+        
+    # 3. Bônus a cada 8 meses 
+    if mes % 8 == 0:
+        acumulado += 800
+
+sobra = acumulado - meta
+
+print(f"Meta atingida em {mes} meses.")
+print(f"Dinheiro que sobra após atingir a meta: R$ {sobra:.2f}")
+
+3. Obs.: você não deve fazer *duas* chamadas recursivas, fica ineficiente pois repete processamento já feito antes
+def encontrar_menor(lista):
+    if len(lista) == 1:
+        return lista[0]
+    menor_restante = encontrar_menor(lista[1:])
+    return lista[0] if lista[0] < menor_restante else menor restante
+
+4.
+a) Fibonacci recursivo repete chamadas já realizadas
+b) Usando um dicionário ou cache para guardar resultados já calculados, para não repetir depois
+
+5.
+Erro: ponteiro Ponto *a foi declarado mas não inicializado
+Conserto: a = malloc(sizeof(Ponto));
+
+6. 
+a. inserir ou remover no início implica mover todo mundo
+b. usando Lista Ligadas com ponteiros evitamos mover todos
+c. no início para evitar percorrer até o final.
+
+7. 
+a) teste de lista vazia (ineficiência)
+b) uso de ponteiros para ponteiros (manutenção difícil)
+
+8. 
+a) antes de liberar a célula preciso salvar o ponteiro para a célula seguinte
+b) 
+celula *q;
+q = p->seg; // antes do free(p)
+
+9.
+def buscar_caminho(G, origem, destino):
+    fila = [origem]
+    visitados = []
+ 
+    while len(fila) > 0:
+        atual = fila.pop(0)
+        if atual == destino:
+            return True
+        if atual not in visitados:
+            visitados.append(atual) 
+            vizinhos = G[atual]
+            for v in vizinhos:
+                if v not in visitados:
+                    fila.append(v) 
+                    
+    return False
+#  Exemplo de Grafo (Rede Social) 
+# 'Pedro' conhece Luiz e Marcio
+rede_social = {
+    'Pedro': ['Luiz', 'Marcio'],
+    'Luiz': ['Clara'],
+    'Marcio': ['Ana'],
+    'Ana': [],
+    'Clara': []
+}
+
+# Teste
+resultado = buscar_caminho(rede_social, 'Pedro', 'Clara')
+
+if resultado:
+    print("Sucesso: Pedro consegue chegar até Clara!")
+else:
+    print("Infelizmente, não há conexão entre Pedro e Clara.")
+
+10.
+def BemFormada(s):
+  p = []
+  for c in s:
+    if c == ')':  #menina fofa
+      if p[-1] == '(': p.pop()  #se fofo match
+      else: return False  #deu ruim sai
+    else:
+      p.append(c) #menino fofo vai para a pilha de espera
+  return len(p) == 0  #se sobrou menino também deu ruim
