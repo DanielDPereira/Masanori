@@ -1,0 +1,102 @@
+1.
+print ({
+    p['nome']: p['preco'] * 1.10
+    for p in lista
+    if p['ativo']
+})
+
+2. 
+print (sorted(
+    lista,
+    key=lambda s: int(''.join(c for c in s if c.isdigit()))
+))
+
+3. 
+ordenada = sorted(
+    ['sol', 'estrela', 'lua', 'planeta'],
+    key=lambda s: sum(1 for c in s.lower() if c.isalpha() and c not in 'aeiou')
+)
+
+4. 
+palavras = frase.lower().split()
+
+frequencia = {
+    p: palavras.count(p)
+    for p in set(palavras)
+}
+
+5.
+meta = 6000
+salario = 2000
+economia = salario * 0.15
+
+mes = 0
+acumulado = 0
+
+while acumulado < meta:
+    mes += 1
+    acumulado += economia
+
+    if mes % 5 == 0:
+        acumulado -= 300
+
+    if mes % 8 == 0:
+        acumulado += 800
+
+print("Meses:", mes)
+print("Sobra:", acumulado - meta)
+
+6.
+def adjacente(n):
+    s = str(n)
+    for k in range(9):
+        if str(k) + str(k+1) in s or str(k+1) + str(k) in s:
+            return True
+    return False
+*ou*
+def adjacente(n):
+    s = str(n)
+    for i in range(len(s) - 1):
+        if abs(int(s[i]) - int(s[i + 1])) == 1:
+            return True
+    return False
+
+7.
+def alarme(ativo, hora):
+    if ativo and hora < 6:
+        return "Problema: madrugada"
+    elif ativo and hora > 22:
+        return "Problema: noite"
+    else:
+        return "Sem problemas"
+
+8.
+def soma_pares_finais(n):
+    s = str(n)[::-1]
+    soma = 0
+    
+    for c in s:
+        if int(c) % 2 == 0:
+            soma += int(c)
+        else:
+            break
+    
+    return soma
+
+9.
+def inverte(frase):
+    palavras = frase.split()
+    invertidas = [p[::-1] for p in palavras]
+    return " ".join(invertidas)
+
+10.
+def pares_repetidos(n):
+    s = str(n)
+    pares = []
+    
+    for k in range(10):
+        par = str(k) + str(k)
+        if par in s:
+            pares.append(par)
+    
+    return pares
