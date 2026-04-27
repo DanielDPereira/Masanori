@@ -1,0 +1,51 @@
+Mergesort - dividir para conquistar
+
+Divido o vetor pela metade até chegar em tamanho 0 ou 1. Por definição ordenado. 
+Junto os pedacinhos em pedaços maiores ordenados, até voltar ao vetor original.
+"Juntar" = Merge. Se tenho duas fileiras ordenadas de crianças, vendo a menor do início de cada fila, 
+consigo mover para uma nova fileira a menor, repetindo o processo até acabarem as filas.
+1 0 2 6  3 4 7 5
+1 0  2 6  3 4  7 5
+0 1  2 6  3 4  5 7
+0 1 2 6  3 4 5 7
+0 1 2 3 4 5 6 7
+
+75012364
+7501 2364
+75 01 23 64
+7 5 0 1 2 3 6 4     8 vetores ordenados de tam 1
+57  01  23  46      4 vetores ordenados de tam 2
+0157    2346        2 vetores ordenados de tam 4
+01234567            vetor ordenado final!
+
+log(n, 2) * n passos
+
+cuidado para juntar gasto mais espaço
+Como as duas metades são independentes posso fazer em paralelo
+
+
+Se eu tiver duas fileiras de crianças, em ordem de tamanho, consigo montar uma fileira única da seguinte forma: 
+vejo a criança que está na frente, a menor, em cada fileira, escolho a menor, entre as duas, e mando para a fileira final. 
+Repito o processo até terminarem as crianças. Se uma das filas acabar, basta encaminhar as crianças restantes 
+para o final da fila única. Este processo se chama "merge" e "junta" duas fileiras em ordem, tornando uma única final, em ordem.
+
+O processo começa dividindo o vetor ao meio, até cada vetor ficar de tamanho 1. Neste caso, tamanho 1 ou 0, 
+o vetor já está em ordem. Vão se formar duplas em ordem. No próximo passo, viram quadruplas em ordem. No próximo octuplas. 
+Note que estou dobrando o vetor em ordem a cada passo. 
+20573164           
+2057 3164              dividi em 2 vetores de 4
+20 57 31 64            dividi em 4 vetores de 2
+2 0 5 7 3 1 6 4        agora tenho 8 vetores de 1
+02  57  13  46
+0257    1346
+01234567     
+
+
+Análise do algoritmo mergesort:
+1. Gasto n passos para o merge (juntar duas fileiras)
+2. Para chegar em tamanho 1, vou gastar log(n, 2)
+Total: n * log(n, 2) <<<<<<<<<<<  n * n
+
+CRÍTICA: Preciso de um espaço igual ao vetor original para o vetor resultante do merge. 
+Isto é, vou gastar o dobro de memória. Isto não é bom. Lição importante, não basta ter poucos passos, 
+é necessário também gastar pouca memória, para ser considerado eficiente
