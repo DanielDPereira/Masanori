@@ -1,0 +1,39 @@
+Quicksort - pivô divide 
+
+Escolho um pivô, divido o mundo em menores e maiores que ele. O pivô fica na posição definitiva. 
+Faço o mesmo para as duas metades. Se dividir em duas partes sempre, dobro o número de elementos ordenados no passo seguinte.
+1 0 2 6 3 4 7 5
+0 1 2 6 3 4 7 5
+    2 6 3 4 7 5
+      3 4 5 6 7
+      3 4 5
+        4 5
+
+
+Vou pegar um voluntário, chamado de pivô, e dividir todo mundo em menores e maiores que o pivô. 
+No final do processo, o voluntário está na posição final do vetor ordenado. Vou repetir o processo nos menores e maiores. 
+Então terei mais duas pessoas na posição final. Vou repetir nas 4 partes, e terei 4 na posição final. 
+No próximo passo 8 pessoas, e depois 16, depois 32... Em log(n, 2) passos todo mundo está ordenado!!
+20573164          2 é o pivô
+01 2 57364        0 pivô menores e 5 pivô maiores
+0 1 2 34 5 76     3 pivô e 7 pivô
+0 1 2 3 4 5 6 7   todo mundo ordenado   
+
+75012364          7 é o pivô
+5012364 7         5 é o pivô
+01234 5 6 7       0 é o pivô
+0 1234 5 6 7      1 é o pivô
+0 1 234 5 6 7     2 é o pivô
+0 1 2 34 5 6 7    3 é o pivô
+0 1 2 3 4 5 6 7   todo mundo ordenado
+
+
+Análise do algoritmo quicksort: para dividir todo mundo em relação ao pivô, gasto n passos. Vou ter todo mundo ordenado, 
+em log(n, 2) passos, pois estou dobrando o número de pessoas a cada passo. Total: n * log(n, 2). Igual mergesort.
+
+CRÍTICA: Seja um vetor já ordenado (pior caso). O voluntário é o menor de todos. Logo não vai ninguém para o lado dos menores, 
+e todo mundo para o lado dos maiores. O segundo voluntário, é o segundo menor, de novo vai todo mundo para o lado dos maiores. 
+Nesse pior caso, vou gastar, n passos até todos estarem na posição final. 
+TOTAL: n passos para todos se comparar com o pivô e n para chegar ao final. n * n passos, 
+isto é tão ruim como inserção ou seleção!!!!
+Não se desespere, pois o pior caso é MUITO RARO, um vetor ordenado. Então, na prática, na vida real, quicksort é muito rápido.

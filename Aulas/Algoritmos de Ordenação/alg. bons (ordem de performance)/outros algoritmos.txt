@@ -1,0 +1,38 @@
+Alguns algoritmos de ordenação são eficientes em casos específicos de dados. Eis alguns exemplos clássicos:
+
+1. Counting Sort
+Quando é eficiente:
+Para inteiros dentro de um intervalo pequeno (ex.: notas de alunos entre 0 e 100).
+Complexidade: O(n + k), onde k é o valor máximo.
+Uso real: Ideal em sistemas de avaliação, histogramas e frequências.
+
+2. Radix Sort
+Quando é eficiente:
+Para números inteiros ou strings com tamanho fixo de dígitos/caracteres.
+Complexidade: O(d·(n + k)), onde d é o número de dígitos e k o tamanho do alfabeto.
+Uso real: Ordenação de CPFs, telefones, CEPs, palavras em dicionários.
+
+3. Bucket Sort
+Quando é eficiente:
+Para dados uniformemente distribuídos em um intervalo.
+Complexidade: Pode se aproximar de O(n) no melhor caso.
+Uso real: Ordenar números reais entre 0 e 1, ordenação de probabilidades ou percentuais.
+
+4. Timsort (usado em Python e Java)
+Quando é eficiente:
+Para dados parcialmente ordenados ou com muitos padrões já organizados.
+Complexidade: O(n log n) no pior caso, mas pode se aproximar de O(n) em casos favoráveis.
+Uso real: Dados reais em sistemas, onde listas já vêm quase ordenadas (logs, registros temporais).
+
+5. BogoSort (exemplo curioso)
+Quando é eficiente:
+Nunca… a não ser que a lista já esteja ordenada de cara.
+Complexidade: Fatorial.
+Uso real: Apenas em piadas de programadores.
+
+
+Resumindo:
+Para valores limitados → Counting Sort.
+Para números grandes/dígitos fixos → Radix Sort.
+Para dados contínuos bem distribuídos → Bucket Sort.
+Para listas quase ordenadas (caso prático!) → Timsort.
